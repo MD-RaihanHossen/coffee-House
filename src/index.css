@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+.active{
+    background-color: chocolate;
+    border-radius: 4px;
+    color: white;
+}
+
+
+@media (prefers-color-scheme: dark) {
+    :root {
+       
+        --color-base-100:  white;
+        --color-base-200: white;
+        --color-base-content: black;
+       
+    }
+}
