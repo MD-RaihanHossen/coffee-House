@@ -18,7 +18,7 @@ const AddCoffees = () => {
         const photo = form.get('photo')
 
         const newCoffee = { name, chef, supplier, taste, category, details, photo }
-        console.log(newCoffee)
+        
 
         //sent coffee data to server 
         fetch(`http://localhost:5000/coffee`, {

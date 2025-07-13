@@ -15,19 +15,20 @@ const Login = () => {
 
     //get location 
     const location = useLocation()
-    console.log(location)
+    
 
     //get navigation 
     const navigate= useNavigate()
 
+   
 
     const handleLoginForm = (e) => {
         e.preventDefault()
-
+        
         const form = new FormData(e.target)
         const email = form.get('email')
         const password = form.get('password')
-        console.log(email, password)
+        
 
         //login user use by firebase
         login(email, password)
@@ -44,7 +45,7 @@ const Login = () => {
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                console.log(errorCode, errorMessage)
+                
 
                 Swal.fire({
                     icon: "error",
@@ -57,9 +58,9 @@ const Login = () => {
     }
 
     const hendlePasswordEye = () => {
-        console.log('raihan')
         setPasswordEye(!passwordEye)
     }
+  
 
     return (
         <div className="hero bg-base-200 min-h-screen">

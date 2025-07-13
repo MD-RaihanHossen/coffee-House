@@ -14,37 +14,39 @@ const CoffeesDisplay = ({ coffeesData }) => {
     const afterDeteleCoffee = coffees.filter(coffee => coffee._id !== id)
     
 
-    //detele to mongodb from here
-    fetch(`http://localhost:5000/delete/${id}`, {
-      method: 'DELETE',
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (data) {
-          Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
-          }).then((data) => {
-            if (data.deletedCount) {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+
+        //detele to mongodb from here
+        fetch(`http://localhost:5000/delete/${id}`, {
+          method: 'DELETE',
+        })
+          .then(res => res.json())
+          .then(data => {
+            if (data.deletedCount)
               Swal.fire({
                 title: "Deleted!",
                 text: "Your file has been deleted.",
                 icon: "success"
               });
-            }
-            setcoffees(afterDeteleCoffee) 
+              setcoffees(afterDeteleCoffee)
           });
-        }
 
-      })
-
-
+      }
+    });
   };
+
+
+
 
   return (
     <div className="py-10 px-4 max-w-6xl mx-auto mb-40">

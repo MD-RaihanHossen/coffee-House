@@ -33,7 +33,7 @@ const GoogleAuth = ({ children }) => {
 
     //update Name and Profile photos
     const setData = (name, photo) => {
-        console.log(name, photo)
+        
         return updateProfile(auth.currentUser, {
             displayName: `${name}`, 
             photoURL : `${photo}`,

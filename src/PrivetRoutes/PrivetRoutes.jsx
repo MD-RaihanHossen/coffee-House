@@ -12,7 +12,7 @@ const PrivetRoutes = ({children}) => {
 
     //const get locaion 
     const location = useLocation()
-    console.log(location)
+    
 
     if(loader){
         return <Loader></Loader>
